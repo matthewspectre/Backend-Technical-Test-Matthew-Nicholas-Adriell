@@ -5,9 +5,9 @@ CREATE TABLE IF NOT EXISTS public.goods_receipts (
     warehouse_id INTEGER NOT NULL,
     received_by BIGINT NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'POSTED',
-    received_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NULL,
+    received_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NULL,
     CONSTRAINT goods_receipts_status_check CHECK (status IN ('POSTED', 'CANCELLED')),
     CONSTRAINT goods_receipts_order_fk FOREIGN KEY (purchase_order_id)
         REFERENCES public.purchase_orders(id),

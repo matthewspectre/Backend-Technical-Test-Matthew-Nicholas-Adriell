@@ -11,7 +11,7 @@ type GoodsReceiptModel struct {
 	Status          string                   `gorm:"column:status"`
 	ReceivedAt      time.Time                `gorm:"column:received_at"`
 	CreatedAt       time.Time                `gorm:"column:created_at"`
-	UpdatedAt       time.Time                `gorm:"column:updated_at"`
+	UpdatedAt       *time.Time               `gorm:"column:updated_at"`
 	Items           []*GoodsReceiptItemModel `gorm:"-"`
 }
 

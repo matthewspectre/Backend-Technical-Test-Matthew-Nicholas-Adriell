@@ -12,7 +12,7 @@ type PurchaseRequestModel struct {
 	Status        string                      `gorm:"column:status"`
 	Items         []*PurchaseRequestItemModel `gorm:"-"`
 	CreatedAt     time.Time                   `gorm:"column:created_at"`
-	UpdatedAt     time.Time                   `gorm:"column:updated_at"`
+	UpdatedAt     *time.Time                  `gorm:"column:updated_at"`
 }
 
 type PurchaseRequestItemModel struct {

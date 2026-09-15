@@ -24,22 +24,12 @@ func NewHandler(uc usecase.Usecase) *Handler {
 	return &Handler{uc: uc}
 }
 
-func formatResponseTime(value string) *string {
-	for _, layout := range []string{
-		time.RFC3339Nano,
-		"2006-01-02 15:04:05.999999-07",
-		"2006-01-02 15:04:05.999999+07",
-		"2006-01-02 15:04:05-07",
-	} {
-		if parsed, err := time.Parse(layout, value); err == nil {
-			formatted := parsed.Format(responseTimeLayout)
-			return &formatted
-		}
-	}
-	if value == "" {
+func formatResponseTime(value *time.Time) *string {
+	if value == nil || value.IsZero() {
 		return nil
 	}
-	return &value
+	formatted := value.Format(responseTimeLayout)
+	return &formatted
 }
 
 func warehouseResponse(data *entity.Warehouse) WarehouseResponse {

@@ -5,8 +5,8 @@ CREATE TABLE IF NOT EXISTS public.purchase_orders (
     supplier_id INTEGER NOT NULL,
     warehouse_id INTEGER NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NULL,
     CONSTRAINT purchase_orders_status_check CHECK (status IN ('DRAFT', 'ORDERED', 'PARTIALLY_RECEIVED', 'RECEIVED', 'CANCELLED')),
     CONSTRAINT purchase_orders_request_fk FOREIGN KEY (purchase_request_id)
         REFERENCES public.purchase_requests(id),
@@ -16,8 +16,8 @@ CREATE TABLE IF NOT EXISTS public.purchase_orders (
         REFERENCES public.warehouse(id)
 );
 
-ALTER TABLE public.purchase_orders
-    ALTER COLUMN po_number DROP DEFAULT;
+-- ALTER TABLE public.purchase_orders
+--     ALTER COLUMN po_number DROP DEFAULT;
 
 
 

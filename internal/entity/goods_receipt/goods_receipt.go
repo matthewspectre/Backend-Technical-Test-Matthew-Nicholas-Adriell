@@ -11,7 +11,7 @@ type GoodsReceipt struct {
 	Status          string              `json:"status"`
 	ReceivedAt      time.Time           `json:"received_at"`
 	CreatedAt       time.Time           `json:"created_at"`
-	UpdatedAt       time.Time           `json:"updated_at"`
+	UpdatedAt       *time.Time          `json:"updated_at"`
 	Items           []*GoodsReceiptItem `json:"items"`
 }
 

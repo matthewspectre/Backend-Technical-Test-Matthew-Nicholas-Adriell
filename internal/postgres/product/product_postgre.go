@@ -101,6 +101,6 @@ func (repository *RepositoryPostgre) Update(ctx context.Context, id int, updates
 func (repository *RepositoryPostgre) Delete(ctx context.Context, id int) error {
 	return repository.Update(ctx, id, map[string]interface{}{
 		"is_active":  0,
-		"updated_at": time.Now().Format("2006-01-02 15:04:05.999999-07"),
+		"updated_at": time.Now(),
 	})
 }

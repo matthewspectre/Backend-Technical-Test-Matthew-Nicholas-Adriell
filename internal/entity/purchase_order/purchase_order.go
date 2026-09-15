@@ -13,7 +13,7 @@ type PurchaseOrder struct {
 	Status            string               `json:"status"`
 	Items             []*PurchaseOrderItem `json:"items"`
 	CreatedAt         time.Time            `json:"created_at"`
-	UpdatedAt         time.Time            `json:"updated_at"`
+	UpdatedAt         *time.Time           `json:"updated_at"`
 }
 
 type PurchaseOrderItem struct {
