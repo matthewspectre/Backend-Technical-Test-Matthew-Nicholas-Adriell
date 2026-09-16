@@ -1,4 +1,4 @@
-##Project Overview
+## Project Overview
 Aplikasi ini dirancang untuk mengelola proses inventory dan procurement, yang mencakup pengelolaan produk, supplier, warehouse, Purchase Request (PR), Purchase Order (PO), 
 serta proses penerimaan barang (Goods Receipt).
 
