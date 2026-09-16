@@ -273,6 +273,125 @@ Modul **product**
 }
 <img width="443" height="478" alt="image" src="https://github.com/user-attachments/assets/e0876865-e7a9-4b9c-a0ac-9e3f725f5c52" />
 
+- unactive product : PATCH / http://localhost:8080/products/16/deactivate
+  <img width="785" height="392" alt="image" src="https://github.com/user-attachments/assets/5cc0eede-0f05-4e4b-b603-74a2d47549eb" />
+-------------------------------------------------------------------------
 
+Modul **supplier** 
+- create supplier : POST / http://localhost:8080/suppliers/
+  PAYLOAD : {
+  "company_name": "PT Mencari Tenar",
+  "name": "Brando Jawato",
+  "email": "brdjwt21@gmail.com",
+  "phone": "0812345623123789",
+  "address": "Jakarta Selatan, JL bpk dara NO.43"
+}
+<img width="608" height="523" alt="image" src="https://github.com/user-attachments/assets/778e1572-064c-4190-bfc9-958735389859" />
 
+- get all supplier : GET / http://localhost:8080/suppliers/
+  <img width="791" height="801" alt="image" src="https://github.com/user-attachments/assets/281050bf-c816-467c-9ebe-e31eba64f401" />
+
+- get supplier by id : GET / http://localhost:8080/suppliers/:id
+  <img width="620" height="519" alt="image" src="https://github.com/user-attachments/assets/8c329466-e50f-40c9-baae-a1263630b124" />
+
+- update supplier : PATCH / http://localhost:8080/suppliers/:id
+  <img width="434" height="554" alt="image" src="https://github.com/user-attachments/assets/7f007e1c-5415-4ba7-89f8-1e878fc89f35" />
+
+- deactivate supplier : PATCH / http://localhost:8080/suppliers/:id/deactivate
+  <img width="528" height="382" alt="image" src="https://github.com/user-attachments/assets/7b134254-4f58-4ef1-a9b0-11e5c8167a15" />
+-------------------------------------------------------------------------
+
+Modul **warehouse** 
+- create warehouse : POST / http://localhost:8080/warehouses/
+  PAYLOAD : {
+  "code": "WH-JKT-002",
+  "name": "Warehouse Kopdes",
+  "location": "Jakarta Utara NO.18"
+}
+<img width="398" height="471" alt="image" src="https://github.com/user-attachments/assets/85cf64fe-35a2-4026-a89b-374cd943c1af" />
+
+- get all warehouse : GET /http://localhost:8080/warehouses
+  <img width="534" height="735" alt="image" src="https://github.com/user-attachments/assets/78f3b19b-691e-4699-ad9e-ccf0dcacc1f4" />
+
+- get by id : GET / http://localhost:8080/warehouses/:id
+  <img width="601" height="471" alt="image" src="https://github.com/user-attachments/assets/8879be90-78b6-45e1-ae47-54329febfd3e" />
+
+- update : PATCH / http://localhost:8080/warehouses/:id
+  PAYLOAD : {
+  "code": "WH-JKT-001",
+  "name": "Warehouse Jakarta Selatan",
+  "location": "Jakarta Selatan"
+}
+<img width="462" height="469" alt="image" src="https://github.com/user-attachments/assets/a93f2c2d-7a1e-4001-ae74-a250bbb5053f" />
+-------------------------------------------------------------------------
+
+Modul inventory
+- create inventory : POST /http://localhost:8080/inventories/
+  <img width="485" height="483" alt="image" src="https://github.com/user-attachments/assets/a550884e-5eee-4e67-9a97-9156ebab3977" />
+
+- get all : GET / http://localhost:8080/inventories
+  <img width="561" height="901" alt="image" src="https://github.com/user-attachments/assets/d9837b24-9207-4ee4-b263-eea137c6e4ea" />
+
+- get by id : GET / http://localhost:8080/inventories/:id
+  <img width="513" height="517" alt="image" src="https://github.com/user-attachments/assets/33e8437b-dd01-469d-86d1-d1db9205e39e" />
+
+- update : PATCH : http://localhost:8080/inventories/:id
+  PAYLOAD : {
+  "product_id": 1,
+  "warehouse_id": 1,
+  "stock": 15
+}
+<img width="492" height="533" alt="image" src="https://github.com/user-attachments/assets/eddf7f2a-83ff-4fd9-b1df-3c4a0deb7731" />
+-------------------------------------------------------------------------
+
+modul **purchase request **
+- create PR : POST /
+  PAYLOAD : {
+  "request_number": "PR-2026-000004",
+  "warehouse_id": 1,
+  "items": [
+    {
+      "product_id": 3,
+      "quantity": 5
+    },
+    {
+      "product_id": 1,
+      "quantity": 10
+    }
+  ]
+  atau jika hanya 1 produk :
+  {
+  "request_number": "PR-2026-000001",
+  "warehouse_id": 1,
+  "items": [
+    {
+      "product_id": 1,
+      "quantity": 5
+    }
+  ]
+}
+<img width="565" height="886" alt="image" src="https://github.com/user-attachments/assets/2c46fb4c-fca8-46f2-acc1-05a141bf4ac0" />
+
+- get all : GET / http://localhost:8080/purchase-requests/
+  <img width="679" height="907" alt="image" src="https://github.com/user-attachments/assets/75a4ec6a-c2c4-470b-b85c-0af7276577b0" />
+
+- get by id : GET / http://localhost:8080/purchase-requests/:id
+  <img width="678" height="688" alt="image" src="https://github.com/user-attachments/assets/b2163564-ae82-4472-b8f3-8d8bae35b992" />
+
+- update : PATCH / http://localhost:8080/purchase-requests/:id
+  PAYLOAD jumlah ingin berapa produk bisa disesuaikan bisa 1 atau lebih : {
+  "warehouse_id": 1,
+  "status": "SUBMITTED",
+  "items": [
+    {
+      "product_id": 3,
+      "quantity": 15
+    },
+    {
+      "product_id": 1,
+      "quantity": 6
+    }
+  ]
+}
+<img width="552" height="913" alt="image" src="https://github.com/user-attachments/assets/4f165c3a-425c-4971-976c-15a602c471b6" />
 
