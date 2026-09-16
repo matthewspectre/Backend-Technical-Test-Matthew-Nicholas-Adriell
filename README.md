@@ -1,4 +1,4 @@
-<img width="443" height="478" alt="image" src="https://github.com/user-attachments/assets/e6c5643c-5129-49e8-a529-5a4b238113ce" /># Project Overview
+Project Overview
 Aplikasi ini dirancang untuk mengelola proses inventory dan procurement, yang mencakup pengelolaan produk, supplier, warehouse, Purchase Request (PR), Purchase Order (PO), 
 serta proses penerimaan barang (Goods Receipt).
 
