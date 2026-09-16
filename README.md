@@ -500,6 +500,8 @@ contoh : http://localhost:8080/inventory-movements/?reference=GR-2026-1789445397
 
 ##Automated test :
 ```text
+masukan command berikut di terminal vscode
+
 purchase request :
 - Test create purchase request tanpa item 
 go test -v -count=1 -run="TestCreate_WithoutItems" ./internal/usecase/purchase_request
@@ -526,6 +528,7 @@ go test -v -count=1 ./internal/usecase/goods_receipt -run TestCreate_IncreasesIn
 - create saat purchase order sudah terpenuhi ( status = RECEIVED)
 go test -v -count=1 -run="TestCreate_WhenPurchaseOrderAlreadyReceived_ShouldReturnError" ./internal/usecase/goods_receipt
 ```
+<img width="931" height="274" alt="image" src="https://github.com/user-attachments/assets/55110d7e-3a57-4651-8c33-cee010f20bd4" />
 
 
 
