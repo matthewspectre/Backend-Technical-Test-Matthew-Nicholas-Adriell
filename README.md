@@ -1,4 +1,4 @@
-Project Overview
+<img width="623" height="530" alt="image" src="https://github.com/user-attachments/assets/e93c7b09-ec4f-4b15-9c9a-6a5ce2b0d0f4" />Project Overview
 Aplikasi ini dirancang untuk mengelola proses inventory dan procurement, yang mencakup pengelolaan produk, supplier, warehouse, Purchase Request (PR), Purchase Order (PO), 
 serta proses penerimaan barang (Goods Receipt).
 
@@ -394,4 +394,84 @@ modul **purchase request **
   ]
 }
 <img width="552" height="913" alt="image" src="https://github.com/user-attachments/assets/4f165c3a-425c-4971-976c-15a602c471b6" />
+
+- approve PR (hanya token yang role nya APPROVER yang bisa approve, jika tidak akan muncul error) : PATCH : http://localhost:8080/purchase-requests/:id/approve
+  <img width="574" height="844" alt="image" src="https://github.com/user-attachments/assets/cc0854b9-5125-40b5-be7a-7f3cc6603bb0" />
+
+  contoh url dengan filter status tertentu : [http://localhost:8080/purchase-requests/?status=REJECTED ](http://localhost:8080/purchase-requests/?status=APPROVED)
+
+- reject PR : PATCH / http://localhost:8080/purchase-requests/:id/reject
+  <img width="641" height="872" alt="image" src="https://github.com/user-attachments/assets/2416c56c-d77a-48d4-9ec6-3b357937164d" />
+-------------------------------------------------------------------------
+
+modul **purchase order**
+- create PO : POST / http://localhost:8080/purchase-requests/:purchase_request_id/purchase-order
+  PAYLOAD : {
+  "supplier_id": 1
+}
+<img width="809" height="847" alt="image" src="https://github.com/user-attachments/assets/38cee35d-72b1-40a4-9324-9401b5a9e391" />
+
+- get all : GET / http://localhost:8080/purchase-orders/
+  <img width="745" height="888" alt="image" src="https://github.com/user-attachments/assets/807cb429-bb48-4fda-99e9-60696e471773" />
+
+- get by id : GET / http://localhost:8080/purchase-orders/:id
+<img width="621" height="851" alt="image" src="https://github.com/user-attachments/assets/0cc204d5-5d8c-41fd-8d93-fb97c5097b48" />
+
+- update status menjadi ordered : PATCH / http://localhost:8080/purchase-orders/:id/status
+  PAYLAOD : {
+  "status": "ORDERED"
+}
+<img width="578" height="866" alt="image" src="https://github.com/user-attachments/assets/97c07b12-742f-4048-9cee-c02f0523d5b4" />
+
+- get by purchase request id : GET / http://localhost:8080/purchase-orders/purchase-request/:purchase_request_id
+<img width="674" height="699" alt="image" src="https://github.com/user-attachments/assets/16e86bcb-c472-4213-8b2d-b7efce6ed078" />
+-------------------------------------------------------------------------
+
+modul **goods receipt**
+- create GR : POST /  http://localhost:8080/purchase-orders/:purchase_order_id/goods-receipts
+  PAYLOAD (items bisa 1 atau lebih) : {
+  "items": [
+    {
+      "product_id": 1,
+      "received_quantity": 3
+    }
+  ]
+}
+<img width="623" height="530" alt="image" src="https://github.com/user-attachments/assets/5b8b437e-f7fa-4257-a6e6-0af76f929157" />
+
+- get all : GET / http://localhost:8080/goods-receipts/
+  <img width="523" height="903" alt="image" src="https://github.com/user-attachments/assets/79c28265-9b25-4c64-9e0b-76e60ff4d73d" />
+
+- get by id : GET / http://localhost:8080/goods-receipts/:id
+  <img width="574" height="620" alt="image" src="https://github.com/user-attachments/assets/378c0c2e-6c25-401c-9b9d-8ad208741b85" />
+-------------------------------------------------------------------------
+
+modul **inventory movement**
+get all : GET / http://localhost:8080/inventory-movements/
+<img width="837" height="909" alt="image" src="https://github.com/user-attachments/assets/6d236e95-34ad-4237-a7ba-da38795717e9" />
+
+parameter filter yang tesedia : product_id, warehouse_id, reference
+contoh : http://localhost:8080/inventory-movements/?reference=GR-2026-1789445397350649200
+<img width="777" height="569" alt="image" src="https://github.com/user-attachments/assets/b778b7da-6017-4c29-a39c-9cf3f814d80c" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
