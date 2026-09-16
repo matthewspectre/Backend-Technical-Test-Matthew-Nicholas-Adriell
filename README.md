@@ -268,6 +268,8 @@ Constraint:
     ]
 }
 `
+<img width="640" height="755" alt="image" src="https://github.com/user-attachments/assets/ee527d11-92bd-4b8f-a59f-ef716840c3bc" />
+
      
    - server berjalan pada http://localhost:8080
      <img width="1384" height="235" alt="image" src="https://github.com/user-attachments/assets/707d2562-b5c3-47f1-a20c-d76dda5846b7" />
