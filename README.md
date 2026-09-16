@@ -496,7 +496,36 @@ get all : GET / http://localhost:8080/inventory-movements/
 parameter filter yang tesedia : product_id, warehouse_id, reference
 contoh : http://localhost:8080/inventory-movements/?reference=GR-2026-1789445397350649200
 <img width="777" height="569" alt="image" src="https://github.com/user-attachments/assets/b778b7da-6017-4c29-a39c-9cf3f814d80c" />
+-------------------------------------------------------------------------
 
+##Automated test :
+```text
+purchase request :
+- Test create purchase request tanpa item 
+go test -v -count=1 -run="TestCreate_WithoutItems" ./internal/usecase/purchase_request
+
+- Test Approve purchase request yang masih belum ter submit
+go test -v -count=1 -run="TestUpdate_NotSubmitted" ./internal/usecase/purchase_request
+
+
+purchase order :
+- Test create order yang purchase request nya belum approve
+go test -v -count=1 -run="TestCreatePR_NotApprove" ./internal/usecase/purchase_order
+
+- Test create order yang purchase request nya sudah memiliki purchase order (duplikat)
+go test -v -count=1 -run="AlreadyExists" ./internal/usecase/purchase_order
+
+
+Goods Receipt :
+- test jika produk yang diterima tidak lebih dari 0 (<0)
+go test -v -count=1 ./internal/usecase/goods_receipt
+
+- goods receipt menambahkan stock produk 
+go test -v -count=1 ./internal/usecase/goods_receipt -run TestCreate_IncreasesInventoryStockByReceivedQuantity
+
+- create saat purchase order sudah terpenuhi ( status = RECEIVED)
+go test -v -count=1 -run="TestCreate_WhenPurchaseOrderAlreadyReceived_ShouldReturnError" ./internal/usecase/goods_receipt
+```
 
 
 
