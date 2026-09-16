@@ -229,7 +229,31 @@ Constraint:
    - server berjalan pada http://localhost:8080
      <img width="1384" height="235" alt="image" src="https://github.com/user-attachments/assets/707d2562-b5c3-47f1-a20c-d76dda5846b7" />
 
+# Cara menjalankan url API melalui postman 
+Modul **user** :
+- create user : POST / http://localhost:8080/auth/register
+PAYLOAD : {
+  "name": "matthew",
+  "email": "matthew@gmail.com",
+  "password": "password123",
+  "role": "APPROVER"
+}
+<img width="382" height="413" alt="image" src="https://github.com/user-attachments/assets/e5f83162-30c5-4e03-8248-5913d073889d" />
 
+- login : POST / http://localhost:8080/login
+  PAYLOAD : {
+  "email": "ikhsan@gmail.com",
+  "password": "password123"
+}
+<img width="1387" height="466" alt="image" src="https://github.com/user-attachments/assets/0d8c1a75-6783-4aae-91e9-77bf479ad5f5" />
+
+Modul **product**
+- create product : http://localhost:8080/products/
+  PAYLOAD : {
+  "sku": "HKU-001",
+  "name": "Throthle Body HKU 230CC",
+  "unit": "pcs"
+}
 
 
 
