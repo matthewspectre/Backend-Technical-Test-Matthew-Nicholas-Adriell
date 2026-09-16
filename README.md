@@ -275,6 +275,8 @@ Constraint:
      <img width="1384" height="235" alt="image" src="https://github.com/user-attachments/assets/707d2562-b5c3-47f1-a20c-d76dda5846b7" />
 
 # Cara menjalankan url API melalui postman 
+link postman : https://technical-meteorologist-7314860-s-team.postman.co/workspace/My-Workspace~a8b21373-9507-4f2c-87da-6f0b6006a7b7/collection/41742420-5b875c99-943c-4f2f-85ba-bf59685accb9?action=share&source=copy-link&creator=41742420
+
 Modul **user** :
 - create user : POST / http://localhost:8080/auth/register
 PAYLOAD :{
