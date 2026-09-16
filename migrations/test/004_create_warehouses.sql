@@ -5,6 +5,6 @@ CREATE TABLE IF NOT EXISTS public.warehouse (
     location VARCHAR(255) NOT NULL,
     is_active SMALLINT NOT NULL DEFAULT 1,
     created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at VARCHAR DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NULL,
     CONSTRAINT warehouse_code_unique UNIQUE (code)
 );

@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 	"strconv"
+	"time"
 
 	entity "be_evindo/internal/entity/purchase_order"
 	usecase "be_evindo/internal/usecase/purchase_order"
@@ -22,6 +23,14 @@ func NewHandler(uc usecase.Usecase) *Handler {
 	return &Handler{uc: uc}
 }
 
+func formatResponseTime(value *time.Time) *string {
+	if value == nil || value.IsZero() {
+		return nil
+	}
+	formatted := value.Format(responseTimeLayout)
+	return &formatted
+}
+
 func purchaseOrderResponse(data *entity.PurchaseOrder) PurchaseOrderResponse {
 	items := make([]PurchaseOrderItemResponse, 0, len(data.Items))
 	for _, item := range data.Items {
@@ -36,7 +45,7 @@ func purchaseOrderResponse(data *entity.PurchaseOrder) PurchaseOrderResponse {
 		SupplierID: data.SupplierID, SupplierName: data.SupplierName,
 		WarehouseID: data.WarehouseID, WarehouseName: data.WarehouseName,
 		Status: data.Status, Items: items, CreatedAt: data.CreatedAt.Format(responseTimeLayout),
-		UpdatedAt: data.UpdatedAt.Format(responseTimeLayout),
+		UpdatedAt: formatResponseTime(data.UpdatedAt),
 	}
 }
 

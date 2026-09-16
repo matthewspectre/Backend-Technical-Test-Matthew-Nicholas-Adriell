@@ -59,7 +59,7 @@ func (usecase *usecase) Update(ctx context.Context, id int, updates map[string]i
 	if len(updates) == 0 {
 		return errors.New("at least one field is required")
 	}
-	updates["updated_at"] = time.Now().Format("2006-01-02 15:04:05.999999-07")
+	updates["updated_at"] = time.Now()
 	for _, field := range []string{"company_name", "name", "email", "phone", "address"} {
 		if value, exists := updates[field]; exists {
 			text, ok := value.(string)

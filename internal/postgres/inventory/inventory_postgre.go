@@ -136,7 +136,7 @@ func (repository *RepositoryPostgre) FindByWarehouse(ctx context.Context, wareho
 }
 
 func (repository *RepositoryPostgre) Update(ctx context.Context, id int, updates map[string]interface{}) error {
-	updates["updated_at"] = time.Now().Format("2006-01-02 15:04:05.999999-07")
+	updates["updated_at"] = time.Now()
 	result := repository.db.WithContext(ctx).
 		Model(&model.InventoryModel{}).
 		Where("id = ?", id).

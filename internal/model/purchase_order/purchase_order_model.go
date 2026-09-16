@@ -13,7 +13,7 @@ type PurchaseOrderModel struct {
 	Status            string                    `gorm:"column:status"`
 	Items             []*PurchaseOrderItemModel `gorm:"-"`
 	CreatedAt         time.Time                 `gorm:"column:created_at"`
-	UpdatedAt         time.Time                 `gorm:"column:updated_at"`
+	UpdatedAt         *time.Time                `gorm:"column:updated_at"`
 }
 
 type PurchaseOrderItemModel struct {

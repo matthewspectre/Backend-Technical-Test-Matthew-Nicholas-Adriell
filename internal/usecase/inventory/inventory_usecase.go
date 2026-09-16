@@ -117,7 +117,7 @@ func (usecase *usecase) Update(ctx context.Context, id int, updates map[string]i
 			return errors.New("inactive warehouses cannot be used for inventory transactions")
 		}
 	}
-	updates["updated_at"] = time.Now().Format("2006-01-02 15:04:05.999999-07")
+	updates["updated_at"] = time.Now()
 	return usecase.repository.Update(ctx, id, updates)
 }
 

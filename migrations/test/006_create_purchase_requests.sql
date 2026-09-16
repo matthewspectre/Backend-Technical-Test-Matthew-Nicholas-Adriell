@@ -4,8 +4,8 @@ CREATE TABLE IF NOT EXISTS public.purchase_requests (
     warehouse_id INTEGER NOT NULL,
     requested_by BIGINT NOT NULL,
     status VARCHAR(20) NOT NULL DEFAULT 'DRAFT',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMPTZ NULL,
     CONSTRAINT purchase_requests_status_check CHECK (status IN ('DRAFT', 'SUBMITTED', 'APPROVED', 'REJECTED')),
     CONSTRAINT purchase_requests_warehouse_fk FOREIGN KEY (warehouse_id)
         REFERENCES public.warehouse(id),
@@ -13,6 +13,8 @@ CREATE TABLE IF NOT EXISTS public.purchase_requests (
         REFERENCES public.users(id)
 );
 
+
+//buat purchase_request_items nya setelah tabel purchase_request ada
 CREATE TABLE IF NOT EXISTS public.purchase_request_items (
     id SERIAL PRIMARY KEY,
     purchase_request_id INTEGER NOT NULL,
