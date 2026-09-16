@@ -1,4 +1,4 @@
-# Project Overview
+<img width="443" height="478" alt="image" src="https://github.com/user-attachments/assets/e6c5643c-5129-49e8-a529-5a4b238113ce" /># Project Overview
 Aplikasi ini dirancang untuk mengelola proses inventory dan procurement, yang mencakup pengelolaan produk, supplier, warehouse, Purchase Request (PR), Purchase Order (PO), 
 serta proses penerimaan barang (Goods Receipt).
 
@@ -226,6 +226,7 @@ Constraint:
      <img width="1237" height="776" alt="image" src="https://github.com/user-attachments/assets/36b83314-3330-4225-8255-8b5e9c8466bc" />
    - Setelah clone repository, untuk menjalankan file Go, klik 'Run' pada pojok kanan, lalu start debugging (tpmbol alternatif = F5)
      <img width="1887" height="562" alt="image" src="https://github.com/user-attachments/assets/bac5b2a4-ea93-475e-97b7-0d7b896ecf25" />
+     
    - server berjalan pada http://localhost:8080
      <img width="1384" height="235" alt="image" src="https://github.com/user-attachments/assets/707d2562-b5c3-47f1-a20c-d76dda5846b7" />
 
@@ -246,14 +247,32 @@ PAYLOAD : {
   "password": "password123"
 }
 <img width="1387" height="466" alt="image" src="https://github.com/user-attachments/assets/0d8c1a75-6783-4aae-91e9-77bf479ad5f5" />
+Token digunakan untuk autentikasi, masukan token di postman pada bagian authorization, dan pilih bearer token
+-------------------------------------------------------------------------
 
 Modul **product**
-- create product : http://localhost:8080/products/
+- create product : POST / http://localhost:8080/products/
   PAYLOAD : {
   "sku": "HKU-001",
   "name": "Throthle Body HKU 230CC",
   "unit": "pcs"
 }
+<img width="361" height="471" alt="image" src="https://github.com/user-attachments/assets/99d8475b-f76b-4f7b-acad-7c12cba061ad" />
+
+- get all product : GET / http://localhost:8080/products/
+  <img width="788" height="882" alt="image" src="https://github.com/user-attachments/assets/1cc927a0-21c8-4ef1-bf3a-6fb5b2282ade" />
+
+- get product by ID : GET / http://localhost:8080/products/:id
+  <img width="702" height="468" alt="image" src="https://github.com/user-attachments/assets/75c55cd2-b7e5-496d-9248-60bc1ffc6fc5" />
+
+- update product : PATCH / http://localhost:8080/products/:id
+  PAYLOAD : {
+  "sku": "HKU-008",
+  "name": "Knalpot Racing HKU",
+  "unit": "pcs"
+}
+<img width="443" height="478" alt="image" src="https://github.com/user-attachments/assets/e0876865-e7a9-4b9c-a0ac-9e3f725f5c52" />
+
 
 
 
