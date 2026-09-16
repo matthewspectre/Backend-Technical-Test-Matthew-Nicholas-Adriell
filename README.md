@@ -233,13 +233,11 @@ Constraint:
 # Cara menjalankan url API melalui postman 
 Modul **user** :
 - create user : POST / http://localhost:8080/auth/register
-PAYLOAD :
-`{
+PAYLOAD :{
   "name": "matthew",
   "email": "matthew@gmail.com",
   "password": "password123",
   "role": "APPROVER"
-}`
 <img width="382" height="413" alt="image" src="https://github.com/user-attachments/assets/e5f83162-30c5-4e03-8248-5913d073889d" />
 
 - login : POST / http://localhost:8080/login
